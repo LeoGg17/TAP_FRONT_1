@@ -1,0 +1,79 @@
+
+<div *ngIf="issloading==false">
+  <mat-stepper [linear]="isLinear" #stepper>
+
+    <mat-step [stepControl]="secondFormGroup" label="COMENTARIOS">
+      <form [formGroup]="secondFormGroup">
+        <mat-card class="example-card2">
+
+          <mat-card-header>
+            <mat-card-title>Titulo: {{posteo.postName}}<br></mat-card-title>
+
+            <mat-card-subtitle>
+              Autor: {{posteo.userId}}<br>
+              Categoria: {{posteo.idSubreddit}}<br>
+              Fecha de Publicacion: {{posteo.createdDate}}<br>
+              {{posteo.descripcion}}<br>
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-grid-list cols="4" rowHeight="3:1.10" [formGroup]="secondFormGroup">
+
+
+              <mat-grid-tile colspan="4" *ngFor="let row of secondFormGroup.get('rows')?.controls;let index = index;">
+<!--                <mat-form-field class="example-full-widthf" appearance="outline">-->
+<!--                  <mat-label>Fecha:{{index}}</mat-label>-->
+<!--                  <input matInput type="date"   [formControl]="row.get('createDate')"  placeholder="Fecha:" [required]>-->
+<!--                </mat-form-field>-->
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label> {{index}}</mat-label>
+                  <textarea rows="4" cols="20"  matInput [formControl]="row.get('comentario')"  placeholder="............:" [required]>
+               </textarea>
+                </mat-form-field>
+
+
+                <span class="example-spacer"></span>
+                <button mat-mini-fab color="accent" style="margin-left: 50px" (click)="onRemoveRow(index)" [disabled]=""><mat-icon>remove</mat-icon></button>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="4" >
+                <button mat-fab color="accent" (click)="onAddRow('')" *ngIf="secondFormGroup.get('rows')"><mat-icon>filter_list</mat-icon></button>
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            <div>
+
+              <button  style="align-self: center;" mat-raised-button color="accent"  (click)="actulizar()"><mat-icon>arrow_right_alt</mat-icon></button>
+              <!--              </ng-template>-->
+            </div>
+          </mat-card-content>
+
+
+        </mat-card>
+      </form>
+    </mat-step>
+
+
+
+  </mat-stepper>
+</div>
+<div *ngIf="isexist==false">
+  <mat-card>
+    <mat-card-title>NO EXISTE</mat-card-title>
+  </mat-card>
+</div>
+<ng-container *ngIf="issloading">
+  <div class="bss-loader" style="margin: auto;">
+    <center>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </center>
+  </div>
+</ng-container>
+
+
+
+
+
+
+

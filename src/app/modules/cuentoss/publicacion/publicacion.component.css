@@ -1,0 +1,109 @@
+.btnCreatePost,
+.btnCreateSubreddit {
+  margin-top: 5px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.post-form {
+  margin: 2px;
+}
+.body2 {
+  background-color: #ffdd90;
+  background-image: url('src/assets/images/fondopost.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.example-card {
+  width: 95%;
+  margin: 0 auto;
+  background-color: rgba(253, 237, 216, 0.82);
+  border-radius: 25px;
+  text-align: center;
+}
+.example-card2 {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(253, 237, 216, 0.82);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.comment-notification {
+  margin-top: 5px;
+}
+mat-form-field{
+  border: #0c0000;
+  width: 45%;
+}
+.mat-form-fieldAREA{
+  border: #0c3255;
+  background: #d1fde5;
+  width: 92%;
+}
+
+.create-post-container {
+  margin-top: 10px;
+  --post-line-color: #ccc;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #878A8C;
+  position: relative;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.btnDiscard {
+  fill: #0079D3;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+  width: 288px;
+  height: 34px;
+  margin-top: 5px;
+  color: #0079D3;
+  background-color: transparent;
+}
+
+.create-post-heading {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #1c1c1c;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.btnCreatePost {
+  background-color: #0079D3;
+  border-color: #0079D3;
+  color: aliceblue;
+  fill: #0079D3;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+  width: 288px;
+  height: 34px;
+}

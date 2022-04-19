@@ -1,0 +1,46 @@
+<mat-stepper class="body2" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="loginForm">
+      <form [formGroup]="loginForm">
+
+          <mat-card-header>
+            <mat-card-title style="font-size: xx-large"> Érase una vez  </mat-card-title>
+          </mat-card-header>
+        <br>
+          <mat-card-content>
+            <mat-card-subtitle style="font-size: xx-large" >
+              Login
+            </mat-card-subtitle>
+            <mat-divider></mat-divider>
+            <br>
+            <mat-form-field appearance="outline" style="width: 90%">
+              <mat-label>EMAIL: </mat-label>
+              <input matInput type="email" formControlName="email" placeholder="Ex. abc@gmail.com" required [(ngModel)]="user.email">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline" style="width: 90%">
+              <mat-label>CLAVE: </mat-label>
+              <input matInput type="password" formControlName="clave" placeholder="* * * * *" required [(ngModel)]="user.clave">
+            </mat-form-field>
+
+          </mat-card-content>
+          <div>
+            <button mat-raised-button color="primary" (click)="login(user)">INICIAR SESION</button>
+          </div>
+          <div class="dd">
+            <tr>
+              <td colspan="1">
+                <label>¿Aún no tiene cuenta?   </label>
+              </td>
+              <td colspan="1"  >
+
+                <label style="color:#0088ff" (click)="irsignup()"> > Registrarse
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </label>
+              </td>
+            </tr>
+          </div>
+
+      </form>
+    </mat-step>
+  </mat-stepper>
+

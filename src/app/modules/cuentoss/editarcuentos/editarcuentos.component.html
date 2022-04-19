@@ -1,0 +1,49 @@
+
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>ÉRASE UNA VEZ</mat-card-title>
+          <mat-card-subtitle>Creacion de un cuento</mat-card-subtitle>
+        </mat-card-header>
+        <mat-label>Fecha de Publicacion: {{fecha | date:'mediumDate'}}</mat-label>
+        <mat-card-content>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Titulo Del Cuento</mat-label>
+            <input matInput formControlName="postName" placeholder="Titulo" required [(ngModel)]="cuento.postName">
+          </mat-form-field>
+          --
+          <mat-form-field appearance="fill">
+            <mat-label>SELECCIONE UNA CATEGORIA:</mat-label>
+            <select matNativeControl class="form-control"  (change)="selectOpcion($event)" style="width: 100%" name="select" required formControlName="idSubreddit">
+              <option value="" selected></option>
+              <option *ngFor="let item of ca"[value]="item.id">{{item.nombre}}--{{item.descripcion}}</option>
+            </select>
+          </mat-form-field>
+
+          <br>
+
+          <mat-form-field class="mat-form-fieldAREA">
+  <textarea matInput rows="4" cols="20"
+            placeholder="Descripcion"
+            formControlName="descripcion"
+            [(ngModel)]="cuento.descripcion">
+  </textarea>
+          </mat-form-field>
+
+
+        </mat-card-content>
+        <div>
+          <button mat-button matStepperPrevious color="warn">Cancelar</button>
+          <button mat-raised-button color="primary" (click)="actualizarcuento(cuento)">Actualizar</button>
+        </div>
+
+      </mat-card>
+    </form>
+  </mat-step>
+
+</mat-stepper>

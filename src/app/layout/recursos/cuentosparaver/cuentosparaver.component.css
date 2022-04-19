@@ -1,0 +1,18 @@
+.example-card {
+  width: 50%;
+  height: 40%;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(224, 180, 10, 0.7);
+  border-inline: 5px solid #0084ff;
+  writing-mode: horizontal-tb;
+  background: rgba(168, 250, 185, 0.72);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-expansion-panel{
+  background: rgb(168, 250, 185);
+}

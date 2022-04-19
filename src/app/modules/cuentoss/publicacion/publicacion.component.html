@@ -1,0 +1,130 @@
+
+<mat-stepper mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="fFormGroup">
+    <form [formGroup]="fFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <mat-card class="example-card2">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>ÉRASE UNA VEZ</mat-card-title>
+          <mat-card-subtitle>Creacion de una categoria</mat-card-subtitle>
+
+        </mat-card-header>
+        <mat-label>Fecha de Creacion: {{fecha | date:'mediumDate'}}</mat-label>
+        <mat-card-content>
+          <br>
+          <mat-form-field appearance="fill"  style="width: 90%">
+            <mat-label>Nombre de la Categoria:</mat-label>
+            <input matInput formControlName="nombre" placeholder="Nombre"  [(ngModel)]="categorias.nombre">
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill"  style="width: 90%">
+            <mat-label>Descripcion: </mat-label>
+            <input matInput formControlName="descripcion" placeholder="Descripcion"  [(ngModel)]="categorias.descripcion">
+          </mat-form-field><br>
+          <mat-divider></mat-divider>
+
+        </mat-card-content>
+
+        <button mat-raised-button color="primary" (click)="createc()">Añadir</button>
+      </mat-card>
+      <div style="text-align: end">
+        <button mat-fab matStepperNext color="warn" style="margin-right: 5px">
+        Omitir
+        </button>
+        <button mat-fab matStepperNext color="primary">
+          <mat-icon>queue_play_next</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel></ng-template>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>ÉRASE UNA VEZ</mat-card-title>
+          <mat-card-subtitle>Publicacion de un cuento</mat-card-subtitle>
+
+<!--          <span class="example-spacer"></span>-->
+<!--          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">-->
+<!--            <mat-icon>more_vert</mat-icon>-->
+<!--          </button>-->
+<!--          <mat-menu #menu="matMenu">-->
+<!--            <button mat-menu-item [routerLink]="['/panel/cuentoss/categoria',userId]">-->
+<!--              <mat-icon color="primary">edit</mat-icon>-->
+<!--              <span>Editar</span>-->
+<!--            </button>-->
+
+<!--          </mat-menu>-->
+
+        </mat-card-header>
+        <mat-label>Fecha de Publicacion: {{fecha | date:'mediumDate'}}</mat-label>
+        <mat-card-content>
+          <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Titulo Del Cuento</mat-label>
+            <input matInput formControlName="postName" placeholder="Titulo" required [(ngModel)]="post.postName">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>SELECCIONE UNA CATEGORIA:</mat-label>
+            <select matNativeControl class="form-control"  (change)="selectOpcion($event)" style="width: 100%" name="select" required formControlName="idSubreddit">
+              <option value="" selected></option>
+              <option *ngFor="let item of ca"[value]="item.id">{{item.nombre}}--{{item.descripcion}}</option>
+            </select>
+          </mat-form-field>
+
+
+          <mat-divider></mat-divider>
+
+          <div>
+
+            <mat-form-field appearance="outline" style="width: 75%; margin-left: 10px" >
+              <img [src]="imgURL" height="150" *ngIf="imgURL">
+              <ngx-mat-file-input (change)="onFileChanged($event)"></ngx-mat-file-input>
+              <mat-icon matSuffix>folder</mat-icon>
+
+            </mat-form-field>
+              <button style="width: 10%; margin-left: 10px"  mat-button  color="warn"
+                    (click)="onUpload()" value="upload">SUBIR</button>
+<!--            -->
+<!--            -->
+<!--            <input type="file" (change)="onFileChanged($event)" >-->
+<!--            <img [src]="imgURL" height="150" *ngIf="imgURL">-->
+<!--            <input type="button" (click)="onUpload()" value="upload">-->
+          </div>
+          <!-- upload image  -->
+
+<!--          <hr />-->
+<!--          Received Image:-->
+<!--          {{ receivedImageData['pic'] | json}}-->
+<!--          5555555<img [src]="convertedImage" >-->
+
+          <mat-divider></mat-divider>
+<br>
+          <mat-form-field class="mat-form-fieldAREA">
+  <textarea matInput rows="4" cols="20"
+            placeholder="Descripcion"
+            formControlName="descripcion"
+            [(ngModel)]="post.descripcion">
+  </textarea>
+          </mat-form-field>
+
+
+
+        </mat-card-content>
+        <div>
+          <button mat-button matStepperPrevious color="warn">Atras</button>
+          <button mat-raised-button color="primary" (click)="create()">Subir</button>
+        </div>
+
+      </mat-card>
+    </form>
+  </mat-step>
+
+</mat-stepper>

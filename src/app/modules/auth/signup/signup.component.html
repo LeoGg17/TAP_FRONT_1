@@ -1,0 +1,50 @@
+<mat-stepper class="body2" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="signupForm">
+      <form [formGroup]="signupForm">
+        <mat-card-header>
+          <mat-card-title style="font-size: xx-large"> Érase una vez  </mat-card-title>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+          <mat-card-subtitle style="font-size: xx-large" >
+           Registro de Usuario
+          </mat-card-subtitle>
+            <mat-divider></mat-divider>
+            <br>
+
+            <mat-form-field appearance="outline" style="width: 90%">
+              <mat-label>EMAIL:</mat-label>
+              <input type="email" matInput formControlName="email" placeholder="Ex. abc@gmail.com" required [(ngModel)]="user.email">
+            </mat-form-field>
+          <br>
+            <mat-form-field appearance="outline" style="width: 90%">
+              <mat-label>Clave</mat-label>
+              <input matInput type="password" formControlName="clave" placeholder="* * * * *" required [(ngModel)]="user.clave">
+            </mat-form-field>
+          <br>
+            <mat-form-field appearance="outline" style="width: 90%">
+              <mat-label>Nombre de Usuario</mat-label>
+              <input matInput type="text" formControlName="username" placeholder="User1" required [(ngModel)]="user.username">
+            </mat-form-field>
+
+          </mat-card-content>
+          <div>
+            <button mat-raised-button color="primary" (click)="signup(user)">REGISTRARSE</button>
+          </div>
+          <div >
+            <tr>
+              <td colspan="1">
+                <label>¿Ya dispones de una cuenta   </label>
+              </td>
+              <td colspan="1">
+
+                <label style="color:#0088ff" (click)="irlogin()"> > Inicia sesion
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </label>
+              </td>
+            </tr>
+          </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+

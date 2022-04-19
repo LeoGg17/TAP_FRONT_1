@@ -1,0 +1,179 @@
+<!--<div *ngIf="issloading==false">-->
+<!--  <mat-card>-->
+<!--    <mat-card-title>CUENTOS PUBLICADOS</mat-card-title>-->
+<!--    <mat-form-field appearance="outline" style="width: 100%">-->
+<!--      <mat-label>BUSCAR CUENTOS POR NOMBRE /CATEGORIAS</mat-label>-->
+<!--      <input matInput   placeholder="FILTRAR" [formControl]="myControl">-->
+<!--      <mat-icon matSuffix>search</mat-icon>-->
+<!--    </mat-form-field>-->
+<!--  </mat-card>-->
+<!--  <br>-->
+<!--  <div *ngIf="isexist">-->
+<!--    <div *ngFor="let post of filteredOptions | async">-->
+<!--      <mat-card class="example-card">-->
+<!--        <mat-card-header>-->
+
+<!--          Received Image:-->
+<!--          {{ receivedImageData['pic'] | json}}-->
+
+<!--          <img [src]="convertedImage" >-->
+
+
+<!--          <mat-card-subtitle>Titulo: {{post.postName}}</mat-card-subtitle><br>-->
+<!--        </mat-card-header>-->
+<!--        <mat-card-content>-->
+
+<!--          <mat-card-subtitle>Fecha de publicacion: {{post.createdDate| date:"longDate"}}</mat-card-subtitle>-->
+<!--          <mat-card-subtitle>Autor: {{post.userId}}</mat-card-subtitle>-->
+
+<!--          <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                               (closed)="panelOpenState = false">-->
+<!--            <mat-expansion-panel-header>-->
+<!--              <mat-panel-title>-->
+<!--                {{post.descripcion}}-->
+<!--              </mat-panel-title>-->
+<!--            </mat-expansion-panel-header>-->
+
+<!--          </mat-expansion-panel>-->
+<!--          <br>-->
+<!--          <mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                               (closed)="panelOpenState = false">-->
+<!--            <mat-expansion-panel-header>-->
+<!--              <mat-panel-title>-->
+<!--                Comentarios-->
+<!--              </mat-panel-title>-->
+<!--              <p *ngFor="let act of post.comentarios">-->
+<!--                <strong>User:</strong> {{act.userId}}-->
+<!--                <br><strong>Fecha:</strong>{{act.createdDate}}-->
+<!--                <br><strong>Comentario:</strong> {{act.comentario}}-->
+
+<!--                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">-->
+<!--                <mat-icon>more_vert</mat-icon>-->
+<!--              </button>-->
+<!--              <mat-menu #menu="matMenu">-->
+<!--                <button mat-menu-item [routerLink]="['/panel/cuentoss/agregarcomentarios',post.id]">-->
+<!--                  <mat-icon color="primary">edit</mat-icon>-->
+<!--                  <span>Agregar comentarios</span>-->
+<!--                </button>-->
+
+<!--              </mat-menu>-->
+<!--            </mat-expansion-panel-header>-->
+
+<!--            <br>-->
+
+<!--          </mat-expansion-panel>-->
+<!--        </mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="isexist==false">-->
+<!--    <mat-card>-->
+<!--      <mat-card-title>NO EXISTEN CUENTOS AUN PUBLICADOS</mat-card-title>-->
+<!--    </mat-card>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<ng-container *ngIf="issloading">-->
+<!--  <div class="bss-loader" style="margin: auto;">-->
+<!--    <center>-->
+<!--      <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+<!--    </center>-->
+<!--  </div>-->
+<!--</ng-container>-->
+
+
+<div class="container" *ngIf="issloading==false">
+  <div class="row">
+    <hr />
+    <div class="col-md-9">
+      <div class="row post">
+
+        <div class="col-md-11">
+          <span>
+           <mat-card-title>CUENTOS PUBLICADOS</mat-card-title>
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>BUSCAR CUENTOS POR NOMBRE /CATEGORIAS</mat-label>
+      <input matInput   placeholder="FILTRAR" [formControl]="myControl">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+          </span>
+          <hr />
+
+          <div *ngIf="isexist">
+            <div *ngFor="let post of filteredOptions | async">
+
+          <mat-card-title>{{post.postName}}</mat-card-title>
+              <br><br>
+              <div>
+                <mat-card-subtitle>Autor: {{post.userName}}</mat-card-subtitle>
+              </div>
+      <div>
+
+
+
+<!--        <h3>Image Uploading Module</h3>-->
+
+<!--        &lt;!&ndash; upload image  &ndash;&gt;-->
+<!--        <input type="button" (click)="onUpload()" value="upload">-->
+<!--        <hr />-->
+<!--        Received Image:-->
+<!--        {{ receivedImageData['pic'] | json}}-->
+<!--        5555555<img [src]="convertedImage" >-->
+<!--      </div>-->
+
+              <div class="container row">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" id="idimagenModel" placeholder="image name" [(ngModel)]="this.post.idimagenModel"
+                         name="name" />
+                </div>
+                <div class="col-md-6">
+                  <input type="button" (click)="getImage()" value="Get Image">
+                </div>
+              </div>
+              <div class="container row">
+                <div class="col-md-12">
+                  <div *ngIf="retrievedImage" [style.background-image]="retrievedImage">
+                    {{retrievedImage['pic'] | json}}
+                    <img [src]="retrievedImage" >
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+          <div>
+
+            <p class="post-text" [innerHtml]="post.descripcion"></p>
+          </div>
+          <div class="post-comment">
+            <button mat-menu-item [routerLink]="['/panel/cuentoss/agregarcomentarios',post.id,post.userId,post.userName]">
+              <mat-icon color="primary">edit</mat-icon>
+              <span>Agregar comentarios</span>
+            </button>
+
+          </div>
+          <div style="margin-top: 60px;" >
+            <div class="comment">
+              <p *ngFor="let act of post.comentarios">-->
+                 <strong>User:</strong> {{act.userName}}- <strong>Fecha:</strong>{{act.createdDate}}
+                 - <strong>Comentario:</strong> {{act.comentario}}
+            </div>
+            <hr />
+
+          </div>
+
+
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+.example-card {
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(137, 250, 226, 0.5);
+  border-radius: 15px;
+  text-align: center;
+}
+.im{
+  border-radius: 25px;
+}
+.example-header-image {
+  background-image: url('src/assets/images/fff.jpg');
+  background-size: cover;
+}
+body {
+  background-color: #ffdd90;
+  background-image: url('src/assets/images/1261.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+
